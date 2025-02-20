@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+  
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <form id="calculator_form">
+        <div class="calculator">
+            <input type="text" name="first_number" id="first_number" placeholder="First Number">
+            <input type="text" name="second_number" id="second_number" placeholder="Second Number">
+            <div id="display"></div>
+            <div class="operators">
+                <button type="button" class="operator" value="+" >+</button>
+                <button type="button" class="operator" value="-" >-</button>
+                <button type="button" class="operator" value="*" >*</button>
+                <button type="button" class="operator" value="/">/</button>
+            </div>
+            <button type="button" id="calculate">Calculate</button>
+            <button type="button" id="clear">Clear</button>
+        </div>
+
+    </form>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f1f1f1;
+        }
+
+        .calculator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        input[type="number"],
+        button {
+            margin: 5px;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="text"] {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .operators {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</body>
