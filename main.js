@@ -52,20 +52,26 @@ clear.addEventListener("click", (e) => {
 
 submit.addEventListener("click", (e) => {
   e.preventDefault();
-  let num1 = Number(number1.value);
-  let num2 = Number(number2.value);
+  let num1 = parseFloat(number1.value);
+  let num2 = parseFloat(number2.value);
   console.log(typeof num1, typeof num2);
-  result.innerText =
-    number1.value === "" || number2.value === ""
-      ? "Please fill all fields"
-      : isNaN(num1) || isNaN(num2)
-      ? "Please enter a valid number"
-      : !operator
-      ? "Please select an operator"
-      : typeof checkOperator(operator)(num1, num2) === "number"
-      ? `${num1.toString()} ${operator} ${num2.toString()} = ${checkOperator(
-          operator
-        )(num1, num2)}`
-      : checkOperator(operator)(num1, num2);
+
+  try {
+    if (number1.value === "" || number2.value === "") {
+      throw new Error("Please fill all fields");
+    } else if (isNaN(num1) || isNaN(num2)) {
+      throw new Error("Please enter a valid number");
+    } else if (!operator) {
+      throw new Error("Please select an operator");
+    } else if (typeof checkOperator(operator)(num1, num2) === "number") {
+      result.innerText = `${num1.toString()} ${operator} ${num2.toString()} = ${checkOperator(
+        operator
+      )(num1, num2)}`;
+    } else {
+      result.innerText = checkOperator(operator)(num1, num2);
+    }
+  } catch (e) {
+    result.innerHTML = `<span style="color:red">${e.message}</span>`;
+  }
   formInput.reset();
 });
