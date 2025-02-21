@@ -6,6 +6,7 @@ let submit = document.getElementById('calculate');
 let clear = document.getElementById('clear');
 let number1= document.getElementById('first_number');
 let number2 = document.getElementById('second_number');
+let displayOperator = document.getElementById('display_operator');
 let operator;
 console.log(operators);
 const add = (a,b)=>a+b;
@@ -27,17 +28,21 @@ function checkOperator(operator){
         default : return 'Invalid operator';
     }
 }
+function setOperator(operatorValue){
+    operator = operatorValue;
+    displayOperator.innerText = operator;
+}
 operators[0].addEventListener('click',(e)=>{
-  operator = e.target.value;
+ setOperator(e.target.value);
 })
 operators[1].addEventListener('click',(e)=>{
-    operator = e.target.value;
+    setOperator(e.target.value);
 })
 operators[2].addEventListener('click',(e)=>{
-    operator = e.target.value;
+    setOperator(e.target.value);
 })
 operators[3].addEventListener('click',(e)=>{
-    operator = e.target.value;
+   setOperator(e.target.value);
 })
 clear.addEventListener('click',(e)=>{
     number1.value = '';
@@ -46,8 +51,8 @@ clear.addEventListener('click',(e)=>{
 })
 
 submit.addEventListener('click',(e)=>{
-    let num1 = Number(number1.value);
-    let num2 = Number(number2.value);
+    let num1 = parseFloat(number1.value);
+    let num2 = parseFloat(number2.value)
     result.innerText = number1.value === '' || number2.value === '' ? 
     'Please fill all fields' : isNaN(num1) || isNaN(num2) ? 
     'Please enter a valid number' : !operator ? 'Please select an operator' :
