@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Simple Calculator</title>
-     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <form id="calculator_form">
-        <div class="calculator">
-            <input type="text" name="first_number" id="first_number" placeholder="First Number">
-            <div id="display_operator"></div>
-            <input type="text" name="second_number" id="second_number" placeholder="Second Number">
-            <div id="display"></div>
-            <div class="operators">
-                <button type="button" class="operator" value="+" >+</button>
-                <button type="button" class="operator" value="-" >-</button>
-                <button type="button" class="operator" value="*" >*</button>
-                <button type="button" class="operator" value="/">/</button>
-            </div>
-            <button type="button" id="calculate">Calculate</button>
-            <button type="button" id="clear">Clear</button>
-        </div>
-
+      <div class="calculator">
+        <input
+          type="text"
+          name="first_number"
+          id="first_number"
+          placeholder="First Number"
+        />
+        <select name="operator" id="operator">
+          <option value="">Select Operator</option>
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="*">×</option>
+          <option value="/">÷</option>
+        </select>
+        <input
+          type="text"
+          name="second_number"
+          id="second_number"
+          placeholder="Second Number"
+        />
+        <div id="display"></div>
+        <button type="button" id="calculate">Calculate</button>
+        <button type="button" id="clear">Clear</button>
+      </div>
     </form>
-    <style>
-     
-    </style>
-</body>
+  </body>
+</html>
