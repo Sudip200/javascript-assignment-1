@@ -29,7 +29,7 @@ button {
   outline: none;
 }
 
-input[type="text"] {
+input[type="number"] {
   background: #f3f3f3;
   text-align: right;
   font-weight: bold;
