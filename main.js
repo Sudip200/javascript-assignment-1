@@ -9,13 +9,14 @@ let number2 = document.getElementById("second_number");
 
 let operator;
 // separate functions for operations
+
 const add = (a, b) => a + b;
 const sub = (a, b) => a - b;
 const mul = (a, b) => a * b;
 const div = (a, b) => {
   let temp = a / b;
   try {
-    if (temp === Infinity) {
+    if (temp === Infinity || temp === -Infinity) {
       throw new Error("Cannot divide by zero");
     }
     return temp;
@@ -59,7 +60,7 @@ submit.addEventListener("click", (e) => {
   try {
     if (number1.value === "" || number2.value === "") {
       throw new Error("Please fill all fields");
-    } else if (isNaN(num1) || isNaN(num2)) {
+    } else if (isNaN(num1) || isNaN(num2) ) {
       throw new Error("Please enter a valid number");
     } else if (!operator) {
       throw new Error("Please select an operator");
