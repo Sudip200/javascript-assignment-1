@@ -58,14 +58,15 @@ submit.addEventListener("click", (e) => {
   let num1 = parseFloat(number1.value); // converting string to number
   let num2 = parseFloat(number2.value);
   console.log(typeof num1, typeof num2);
-
+console.log(num1,num2);
+console.log(number1.value,number2.value);
   try {
-    if (number1.value === "" || number2.value === "") {
+    if (isNaN(num1) || isNaN(num2)) {
+      //checking for invalid number
+      throw new Error("Please enter a valid numbers");
+    } else if ( number1.value === "" || number2.value === "") {
       //checking for empty fields
       throw new Error("Please fill all fields");
-    } else if (isNaN(num1) || isNaN(num2) ) {
-      //checking for invalid input
-      throw new Error("Please enter a valid number");
     } else if (!operator) {
       //checking for operator
       throw new Error("Please select an operator");
